@@ -23,7 +23,23 @@ function App() {
 
   const searchItems = searchValue => {
     setSearchInput(searchValue)
-    if (searchValue !== "") {
+    if (searchValue !== "" && list) {
+      const filteredData = Object.entries(list.Data)
+        .filter(([symbol, coinData]) =>
+          coinData.FullName.toLowerCase().includes(searchValue.toLowerCase()) ||
+          symbol.toLowerCase().includes(searchValue.toLowerCase())
+        )
+        .map(([symbol]) => symbol) // just keep the coin symbols
+      setFilteredResults(filteredData)
+    } else if (list) {
+      setFilteredResults(Object.keys(list.Data))
+    }
+  }
+
+
+  /*const searchItems = searchValue => {
+    setSearchInput(searchValue)
+    if (searchValue !== "" ) {
       const filteredData = Object.keys(list.Data).filter((item) =>
         Object.values(item)
           .join("")
@@ -34,7 +50,7 @@ function App() {
     } else {
       setFilteredResults(Object.keys(list.Data))
     }
-  }
+  }*/
 
   return (
     <div className="whole-page">
@@ -98,7 +114,9 @@ function App() {
                   name={coinData.FullName}
                   symbol={coinData.Symbol}
                 />
-              ))}
+              
+              ))
+              }
       </ul>
     </div>
   )
