@@ -1,6 +1,8 @@
 import { useState,  useEffect } from 'react'
 import viteLogo from '/vite.svg'
 import './App.css'
+import CoinInfo from "./Components/CoinInfo"
+
 const API_KEY = import.meta.env.VITE_APP_API_KEY
 
 function App() {
@@ -32,7 +34,11 @@ function App() {
                 coinData.ProofType !== "N/A"
               )
               .map(([coin, coinData]) => (
-                <li key={coinData.FullName}>{coinData.FullName}</li>
+                <CoinInfo
+                  image={list.Data[coin].ImageUrl}
+                  name={list.Data[coin].FullName}
+                  symbol={list.Data[coin].Symbol}
+                />
               ))}
           
         </ul>
