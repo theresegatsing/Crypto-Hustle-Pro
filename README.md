@@ -32,5 +32,5 @@ This project is the result of a lab where I built a cryptocurrency tracking app 
 
 ## 📸 Screenshots
 
-> _(Add your screenshots here by dragging and dropping or using markdown like this:)_
+![Crypto App Screenshot](./"crypto screenshot.png")
 
