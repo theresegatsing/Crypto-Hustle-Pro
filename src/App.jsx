@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
-import viteLogo from '/vite.svg'
 import './App.css'
-import CoinInfo from "./Components/CoinInfo"
+import CoinInfo from "./Components/CoinInfo.jsx"
 
 const API_KEY = import.meta.env.VITE_APP_API_KEY
 
